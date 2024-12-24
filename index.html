@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Message</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+
+        .message-box {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff6347;
+            font-size: 2.5em;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: #2e8b57;
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .surprise-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .surprise-button:hover {
+            background-color: #45a049;
+        }
+
+        .name-input {
+            padding: 10px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+
+        .surprise-content {
+            display: none;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="message-box">
+        <h1>😳 Have you seen this?</h1>
+        <h2 id="surprise-title">*<span id="sender-name">Ruth</span>* sent you a surprise message 😍</h2>
+        
+        <p>💁 Open this 👇👇</p>
+        
+        <button class="surprise-button" onclick="showSurpriseMessage()">Open the Surprise</button>
+
+        <div class="surprise-content" id="surprise-content">
+            <h2 id="surprise-msg">Wow, you've unlocked a special message! 🎉</h2>
+            <p>🎁 Congratulations! You've received a personalized surprise message. We hope this brings a smile to your face! 😊</p>
+        </div>
+
+        <input type="text" class="name-input" id="name-input" placeholder="Enter a name" />
+        <button class="surprise-button" onclick="updateName()">Surprise Me with Another Name!</button>
+    </div>
+
+    <script>
+        function showSurpriseMessage() {
+            // Reveal the surprise content
+            document.getElementById('surprise-content').style.display = 'block';
+        }
+
+        function updateName() {
+            var name = document.getElementById('name-input').value;
+            if (name) {
+                document.getElementById('sender-name').textContent = name; // Change the sender name in the title
+                document.getElementById('surprise-title').textContent = `*${name}* sent you a surprise message 😍`; // Update the message
+                document.getElementById('name-input').value = ''; // Clear the input field
+            } else {
+                alert('Please enter a name!');
+            }
+        }
+    </script>
+
+</body>
+</html>
+s
